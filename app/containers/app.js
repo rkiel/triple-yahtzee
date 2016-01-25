@@ -12,7 +12,12 @@ import {
   changeFives,
   changeSixes,
   changeThreeOfAKind,
-  changeFourOfAKind } from '../actions/index';
+  changeFourOfAKind,
+  changeFullHouse,
+  changeSmallStraight,
+  changeLargeStraight,
+  changeYahtzee,
+  changeChance } from '../actions/index';
 
 class UpperBody extends Component {
 
@@ -35,6 +40,11 @@ class UpperBody extends Component {
 
             <Row label="3 of a Kind"   one={this.props.threeOfAKind.one}   two={this.props.threeOfAKind.two}   three={this.props.threeOfAKind.three}   change={this.props.changeThreeOfAKind} />
             <Row label="4 of a Kind"   one={this.props.fourOfAKind.one}    two={this.props.fourOfAKind.two}    three={this.props.fourOfAKind.three}    change={this.props.changeFourOfAKind} />
+            <Row label="Full House"    one={this.props.fullHouse.one}    two={this.props.fullHouse.two}    three={this.props.fullHouse.three}    change={this.props.changeFullHouse} />
+            <Row label="Sm. Straight"  one={this.props.smallStraight.one}    two={this.props.smallStraight.two}    three={this.props.smallStraight.three}    change={this.props.changeSmallStraight} />
+            <Row label="Lg. Straight"  one={this.props.largeStraight.one}    two={this.props.largeStraight.two}    three={this.props.largeStraight.three}    change={this.props.changeLargeStraight} />
+            <Row label="Yahtzee"       one={this.props.yahtzee.one}    two={this.props.yahtzee.two}    three={this.props.yahtzee.three}    change={this.props.changeYahtzee} />
+            <Row label="Chance"       one={this.props.chance.one}    two={this.props.chance.two}    three={this.props.chance.three}    change={this.props.changeChance} />
             <Row label="Lower Grand"   one={this.props.lowerTotal.one}     two={this.props.lowerTotal.two}     three={this.props.lowerTotal.three} />
 
             <Row blank={true} />
@@ -69,9 +79,9 @@ function mapStateToProps(state) {
   }
 
   const lowerTotal = {
-    one:   sum(state.threeOfAKind.one,   state.fourOfAKind.one),
-    two:   sum(state.threeOfAKind.two,   state.fourOfAKind.two),
-    three: sum(state.threeOfAKind.three, state.fourOfAKind.three)
+    one:   sum(state.threeOfAKind.one,   state.fourOfAKind.one,   state.fullHouse.one,   state.smallStraight.one,   state.largeStraight.one,   state.yahtzee.one,   state.chance.one),
+    two:   sum(state.threeOfAKind.two,   state.fourOfAKind.two,   state.fullHouse.two,   state.smallStraight.two,   state.largeStraight.two,   state.yahtzee.two,   state.chance.two),
+    three: sum(state.threeOfAKind.three, state.fourOfAKind.three, state.fullHouse.three, state.smallStraight.three, state.largeStraight.three, state.yahtzee.three, state.chance.three)
   }
 
   const combinedTotal = {
@@ -93,12 +103,19 @@ function mapStateToProps(state) {
     fours:  state.fours,
     fives:  state.fives,
     sixes:  state.sixes,
-    threeOfAKind: state.threeOfAKind,
-    fourOfAKind:  state.fourOfAKind,
     upperTotal: upperTotal,
     upperBonus: upperBonus,
     upperGrand: upperGrand,
+
+    threeOfAKind:  state.threeOfAKind,
+    fourOfAKind:   state.fourOfAKind,
+    fullHouse:     state.fullHouse,
+    smallStraight: state.smallStraight,
+    largeStraight: state.largeStraight,
+    yahtzee:       state.yahtzee,
+    chance:        state.chance,
     lowerTotal: lowerTotal,
+
     combinedTotal: combinedTotal,
     yahtzeeTotal:  yahtzeeTotal,
     grandTotal: yahtzeeTotal.one + yahtzeeTotal.two + yahtzeeTotal.three
@@ -107,19 +124,24 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    changeAces:   changeAces,
-    changeTwos:   changeTwos,
-    changeThrees: changeThrees,
-    changeFours:  changeFours,
-    changeFives:  changeFives,
-    changeSixes:  changeSixes,
-    changeThreeOfAKind: changeThreeOfAKind,
-    changeFourOfAKind:  changeFourOfAKind
+    changeAces:          changeAces,
+    changeTwos:          changeTwos,
+    changeThrees:        changeThrees,
+    changeFours:         changeFours,
+    changeFives:         changeFives,
+    changeSixes:         changeSixes,
+    changeThreeOfAKind:  changeThreeOfAKind,
+    changeFourOfAKind:   changeFourOfAKind,
+    changeFullHouse:     changeFullHouse,
+    changeSmallStraight: changeSmallStraight,
+    changeLargeStraight: changeLargeStraight,
+    changeYahtzee:       changeYahtzee,
+    changeChance:        changeChance
   }, dispatch);
 }
 
-function sum(one, two, three, four, five, six) {
-  return toInt(one) + toInt(two) + toInt(three) + toInt(four) + toInt(five) + toInt(six);
+function sum(one, two, three, four, five, six, seven) {
+  return toInt(one) + toInt(two) + toInt(three) + toInt(four) + toInt(five) + toInt(six) + toInt(seven);
 }
 
 function bonus(value) {
