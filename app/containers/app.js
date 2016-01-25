@@ -26,6 +26,14 @@ class UpperBody extends Component {
       <div>
         <h1>Triple Yahtzee Score Card</h1>
         <table>
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>One</th>
+            <th>Two</th>
+            <th>Three</th>
+          </thead>
           <tbody>
             <Row label="Aces"   help="(1)" score="Total of all Aces"   one={this.props.aces.one}       two={this.props.aces.two}       three={this.props.aces.three}   change={this.props.changeAces} />
             <Row label="Twos"   help="(2)" score="Total of all Twos"   one={this.props.twos.one}       two={this.props.twos.two}       three={this.props.twos.three}   change={this.props.changeTwos} />
