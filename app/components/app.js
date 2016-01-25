@@ -1,10 +1,15 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
+import UpperSection from './upper_section';
 
 export default class App extends Component {
   render() {
     return (
-      <div>React simple starter</div>
+      <div>
+        <h1>Triple Yahtzee Score Card</h1>
+
+        <UpperSection />
+
+      </div>
     );
   }
 }
