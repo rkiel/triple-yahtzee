@@ -19,6 +19,7 @@ export function changeTwos(one,two,three) {
     }
   }
 }
+
 export function changeThrees(one,two,three) {
   return {
     type: 'CHANGE_THREES',
@@ -29,6 +30,7 @@ export function changeThrees(one,two,three) {
     }
   }
 }
+
 export function changeFours(one,two,three) {
   return {
     type: 'CHANGE_FOURS',
@@ -39,6 +41,7 @@ export function changeFours(one,two,three) {
     }
   }
 }
+
 export function changeFives(one,two,three) {
   return {
     type: 'CHANGE_FIVES',
@@ -49,6 +52,7 @@ export function changeFives(one,two,three) {
     }
   }
 }
+
 export function changeSixes(one,two,three) {
   return {
     type: 'CHANGE_SIXES',

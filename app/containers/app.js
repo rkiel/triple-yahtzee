@@ -14,15 +14,15 @@ class UpperBody extends Component {
         <h1>Triple Yahtzee Score Card</h1>
         <table>
           <tbody>
-            <Row label="Aces"   one={this.props.aces.one}  two={this.props.aces.two}  three={this.props.aces.three}  change={this.props.changeAces} />
-            <Row label="Twos"   one={this.props.twos.one}  two={this.props.twos.two}  three={this.props.twos.three}  change={this.props.changeTwos} />
-            <Row label="Threes" one={this.props.threes.one}  two={this.props.threes.two}  three={this.props.threes.three}  change={this.props.changeThrees} />
+            <Row label="Aces"   one={this.props.aces.one}   two={this.props.aces.two}   three={this.props.aces.three}   change={this.props.changeAces} />
+            <Row label="Twos"   one={this.props.twos.one}   two={this.props.twos.two}   three={this.props.twos.three}   change={this.props.changeTwos} />
+            <Row label="Threes" one={this.props.threes.one} two={this.props.threes.two} three={this.props.threes.three} change={this.props.changeThrees} />
             <Row label="Fours"  one={this.props.fours.one}  two={this.props.fours.two}  three={this.props.fours.three}  change={this.props.changeFours} />
             <Row label="Fives"  one={this.props.fives.one}  two={this.props.fives.two}  three={this.props.fives.three}  change={this.props.changeFives} />
             <Row label="Sixes"  one={this.props.sixes.one}  two={this.props.sixes.two}  three={this.props.sixes.three}  change={this.props.changeSixes} />
-            <Row label="Total" one={this.props.total.one} two={this.props.total.two} three={this.props.total.three} readonly={true} />
-            <Row label="Bonus" one={this.props.bonus.one} two={this.props.bonus.two} three={this.props.bonus.three} readonly={true} />
-            <Row label="Grand" one={this.props.grand.one} two={this.props.grand.two} three={this.props.grand.three} readonly={true} />
+            <Row label="Total"  one={this.props.total.one}  two={this.props.total.two}  three={this.props.total.three} />
+            <Row label="Bonus"  one={this.props.bonus.one}  two={this.props.bonus.two}  three={this.props.bonus.three} />
+            <Row label="Total"  one={this.props.grand.one}  two={this.props.grand.two}  three={this.props.grand.three} />
           </tbody>
         </table>
       </div>

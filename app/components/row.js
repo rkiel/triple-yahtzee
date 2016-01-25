@@ -41,18 +41,10 @@ export default class Row extends Component {
   }
 
   render() {
-    if (this.props.readonly) {
-      return this.readonly();
-    } else {
+    if (this.props.change) {
       return this.readwrite();
+    } else {
+      return this.readonly();
     }
-  }
-}
-
-function toInt(value) {
-  if (value) {
-    return value;
-  } else {
-    return 0;
   }
 }
