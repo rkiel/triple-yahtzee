@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UpperSection from './upper_section';
+import UpperBody from '../containers/upper_body';
 
 export default class App extends Component {
   render() {
@@ -7,7 +7,7 @@ export default class App extends Component {
       <div>
         <h1>Triple Yahtzee Score Card</h1>
 
-        <UpperSection />
+        <UpperBody />
 
       </div>
     );

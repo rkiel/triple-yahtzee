@@ -10,6 +10,7 @@ class UpperBody extends Component {
 
   render() {
     return (
+      <table>
         <tbody>
           <Row label="Aces"   one={this.props.aces.one}  two={this.props.aces.two}  three={this.props.aces.three}  change={this.props.changeAces} />
           <Row label="Twos"   one={this.props.twos.one}  two={this.props.twos.two}  three={this.props.twos.three}  change={this.props.changeTwos} />
@@ -21,6 +22,7 @@ class UpperBody extends Component {
           <Row label="Bonus" one={this.props.bonus.one} two={this.props.bonus.two} three={this.props.bonus.three} readonly={true} />
           <Row label="Grand" one={this.props.grand.one} two={this.props.grand.two} three={this.props.grand.three} readonly={true} />
         </tbody>
+      </table>
     )
   }
 
