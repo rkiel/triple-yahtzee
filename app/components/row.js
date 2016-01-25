@@ -6,16 +6,22 @@ export default class Row extends Component {
     return (
       <tr>
         <td>
-        &nbsp;
+          &nbsp;
         </td>
         <td>
-        &nbsp;
+          &nbsp;
         </td>
         <td>
-        &nbsp;
+          &nbsp;
         </td>
         <td>
-        &nbsp;
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          &nbsp;
         </td>
       </tr>
     )
@@ -25,7 +31,13 @@ export default class Row extends Component {
     return (
       <tr>
         <td>
-          {this.props.label}
+          <strong>{this.props.label}</strong>
+        </td>
+        <td>
+          {this.props.help}
+        </td>
+        <td>
+          {this.props.score}
         </td>
         <td>
           <input value={this.props.one} disabled={true} />
@@ -44,7 +56,13 @@ export default class Row extends Component {
     return (
       <tr>
         <td>
-          {this.props.label}
+          <strong>{this.props.label}</strong>
+        </td>
+        <td>
+          {this.props.help}
+        </td>
+        <td>
+          {this.props.score}
         </td>
         <td>
           <input value={this.props.one} onChange={event => this.props.change(event.target.value,this.props.two,this.props.three)} />
