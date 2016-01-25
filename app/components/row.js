@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 export default class Row extends Component {
 
@@ -65,13 +66,13 @@ export default class Row extends Component {
           {this.props.score}
         </td>
         <td>
-          <input value={this.props.one} onChange={event => this.props.change(event.target.value,this.props.two,this.props.three)} />
+          <input value={this.props.one} style={this.valClass(this.props.one)} onChange={event => this.props.change(validation(event.target.value),this.props.two,this.props.three)} />
         </td>
         <td>
-          <input value={this.props.two} onChange={event => this.props.change(this.props.one,event.target.value,this.props.three)} />
+          <input value={this.props.two} style={this.valClass(this.props.two)} onChange={event => this.props.change(this.props.one,validation(event.target.value),this.props.three)} />
         </td>
         <td>
-          <input value={this.props.three} onChange={event => this.props.change(this.props.one,this.props.two,event.target.value)} />
+          <input value={this.props.three} style={this.valClass(this.props.three)} onChange={event => this.props.change(this.props.one,this.props.two,validation(event.target.value))} />
         </td>
       </tr>
     )
@@ -86,4 +87,28 @@ export default class Row extends Component {
       return this.readonly();
     }
   }
+
+  valClass(value) {
+    if (validation(value) === "" ) {
+      return { };
+    } else if (this.props.values) {
+      if (_.includes(_.map(this.props.values, function(x) { return x.toString(); }), value)) {
+        return { };
+      } else {
+        return { border: '2px solid red' };
+      }
+    } else {
+      return { };
+    }
+  }
+
 }
+
+function validation(value) {
+    if (value && value.match(/^\d+$/)) {
+      return value;
+    } else {
+      return "";
+    }
+  }
+
