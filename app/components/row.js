@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
 export default class Row extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      one:      props.one,
-      two:      props.two,
-      three:    props.three
-    };
-  }
 
   readonly() {
     return (
@@ -17,13 +9,13 @@ export default class Row extends Component {
           {this.props.label}
         </td>
         <td>
-          <input value={this.state.value} disabled={true} />
+          <input value={this.props.one} disabled={true} />
         </td>
         <td>
-          <input value={this.state.value} disabled={true} />
+          <input value={this.props.two} disabled={true} />
         </td>
         <td>
-          <input value={this.state.value} disabled={true} />
+          <input value={this.props.three} disabled={true} />
         </td>
       </tr>
     )
@@ -36,13 +28,13 @@ export default class Row extends Component {
           {this.props.label}
         </td>
         <td>
-          <input value={this.state.value} onChange={event => this.setState({one: event.target.value})} />
+          <input value={this.props.one} onChange={event => this.props.change(event.target.value,this.props.two,this.props.three)} />
         </td>
         <td>
-          <input value={this.state.value} onChange={event => this.setState({two: event.target.value})} />
+          <input value={this.props.two} onChange={event => this.props.change(this.props.one,event.target.value,this.props.three)} />
         </td>
         <td>
-          <input value={this.state.value} onChange={event => this.setState({three: event.target.value})} />
+          <input value={this.props.three} onChange={event => this.props.change(this.props.one,this.props.two,event.target.value)} />
         </td>
       </tr>
     )
@@ -54,5 +46,13 @@ export default class Row extends Component {
     } else {
       return this.readwrite();
     }
+  }
+}
+
+function toInt(value) {
+  if (value) {
+    return value;
+  } else {
+    return 0;
   }
 }
