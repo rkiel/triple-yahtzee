@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import Row from './row';
+
+import Aces  from '../containers/aces';
+import Twos  from '../containers/twos';
+import Total from '../containers/total';
+import Bonus from '../containers/bonus';
+import UpperTotal from '../containers/upper_total';
 
 export default class UpperSection extends Component {
   constructor(props) {
@@ -12,15 +17,11 @@ export default class UpperSection extends Component {
     return (
       <table>
         <tbody>
-          <Row label="Aces" />
-          <Row label="Twos" />
-          <Row label="Threes" />
-          <Row label="Fours" />
-          <Row label="Fives" />
-          <Row label="Sixes" />
-          <Row label="Total"         readonly={true} />
-          <Row label="Bonus"         readonly={true} />
-          <Row label="Upper Section" readonly={true} />
+          <Aces />
+          <Twos />
+          <Total />
+          <Bonus />
+          <UpperTotal />
         </tbody>
       </table>
     );
