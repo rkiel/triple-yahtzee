@@ -2,6 +2,25 @@ import React, { Component } from 'react';
 
 export default class Row extends Component {
 
+  blank() {
+    return (
+      <tr>
+        <td>
+        &nbsp;
+        </td>
+        <td>
+        &nbsp;
+        </td>
+        <td>
+        &nbsp;
+        </td>
+        <td>
+        &nbsp;
+        </td>
+      </tr>
+    )
+  }
+
   readonly() {
     return (
       <tr>
@@ -41,7 +60,9 @@ export default class Row extends Component {
   }
 
   render() {
-    if (this.props.change) {
+    if (this.props.blank) {
+      return this.blank();
+    } else if (this.props.change) {
       return this.readwrite();
     } else {
       return this.readonly();
