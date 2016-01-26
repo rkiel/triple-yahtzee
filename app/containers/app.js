@@ -24,11 +24,10 @@ class UpperBody extends Component {
   render() {
     return (
       <div>
-        <h1>Triple Yahtzee Score Card</h1>
-        <table>
+        <table className="mdl-data-table">
           <thead>
             <tr>
-              <th></th>
+              <th>Triple Yahtzee Score Card</th>
               <th></th>
               <th></th>
               <th>One</th>
@@ -100,8 +99,6 @@ class UpperBody extends Component {
                  two={this.props.upperGrand.two}
                  three={this.props.upperGrand.three} />
 
-            <Row blank={true} />
-
             <Row label="3 of a Kind"
                  score="Total of all dice"
                  one={this.props.threeOfAKind.one}
@@ -157,8 +154,6 @@ class UpperBody extends Component {
                  two={this.props.lowerTotal.two}
                  three={this.props.lowerTotal.three} />
 
-            <Row blank={true} />
-
             <Row label="Combined Total"
                  one={this.props.combinedTotal.one}
                  two={this.props.combinedTotal.two}
@@ -167,10 +162,13 @@ class UpperBody extends Component {
                  one={this.props.yahtzeeTotal.one}
                  two={this.props.yahtzeeTotal.two}
                  three={this.props.yahtzeeTotal.three} />
+            <Row label="Grand Total"
+                 one="---"
+                 two="---"
+                 three={this.props.grandTotal} />
           </tbody>
         </table>
 
-        <h2>Grand Total: {this.props.grandTotal}</h2>
       </div>
     )
   }

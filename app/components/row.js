@@ -6,22 +6,22 @@ export default class Row extends Component {
   blank() {
     return (
       <tr>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           &nbsp;
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           &nbsp;
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           &nbsp;
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           &nbsp;
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           &nbsp;
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           &nbsp;
         </td>
       </tr>
@@ -31,23 +31,23 @@ export default class Row extends Component {
   readonly() {
     return (
       <tr>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           <strong>{this.props.label}</strong>
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           {this.props.help}
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           {this.props.score}
         </td>
-        <td>
-          <input value={this.props.one} disabled={true} />
+        <td className="mdl-data-table__cell--non-numeric">
+          <input maxLength="3" size="3" style={{textAlign: 'right'}} className="mdl-textfield__input" value={this.props.one} disabled={true} />
         </td>
-        <td>
-          <input value={this.props.two} disabled={true} />
+        <td className="mdl-data-table__cell--non-numeric">
+          <input maxLength="3" size="3" style={{textAlign: 'right'}} className="mdl-textfield__input" value={this.props.two} disabled={true} />
         </td>
-        <td>
-          <input value={this.props.three} disabled={true} />
+        <td className="mdl-data-table__cell--non-numeric">
+          <input maxLength="3" size="3" style={{textAlign: 'right'}} className="mdl-textfield__input" value={this.props.three} disabled={true} />
         </td>
       </tr>
     )
@@ -56,23 +56,23 @@ export default class Row extends Component {
   readwrite() {
     return (
       <tr>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           <strong>{this.props.label}</strong>
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           {this.props.help}
         </td>
-        <td>
+        <td className="mdl-data-table__cell--non-numeric">
           {this.props.score}
         </td>
-        <td>
-          <input value={this.props.one} style={this.valClass(this.props.one)} onChange={event => this.props.change(validation(event.target.value),this.props.two,this.props.three)} />
+        <td className="mdl-data-table__cell--non-numeric">
+          <input maxLength="3" size="3" className="mdl-textfield__input" value={this.props.one} style={this.valClass(this.props.one)} onChange={event => this.props.change(validation(event.target.value),this.props.two,this.props.three)} />
         </td>
-        <td>
-          <input value={this.props.two} style={this.valClass(this.props.two)} onChange={event => this.props.change(this.props.one,validation(event.target.value),this.props.three)} />
+        <td className="mdl-data-table__cell--non-numeric">
+          <input maxLength="3" size="3" className="mdl-textfield__input" value={this.props.two} style={this.valClass(this.props.two)} onChange={event => this.props.change(this.props.one,validation(event.target.value),this.props.three)} />
         </td>
-        <td>
-          <input value={this.props.three} style={this.valClass(this.props.three)} onChange={event => this.props.change(this.props.one,this.props.two,validation(event.target.value))} />
+        <td className="mdl-data-table__cell--non-numeric">
+          <input maxLength="3" size="3" className="mdl-textfield__input" value={this.props.three} style={this.valClass(this.props.three)} onChange={event => this.props.change(this.props.one,this.props.two,validation(event.target.value))} />
         </td>
       </tr>
     )
@@ -90,15 +90,15 @@ export default class Row extends Component {
 
   valClass(value) {
     if (validation(value) === "" ) {
-      return { };
+      return {textAlign: 'right' };
     } else if (this.props.values) {
       if (_.includes(_.map(this.props.values, function(x) { return x.toString(); }), value)) {
-        return { };
+        return {textAlign: 'right' };
       } else {
-        return { border: '2px solid red' };
+        return { textAlign: 'right', border: '2px solid red' };
       }
     } else {
-      return { };
+      return {textAlign: 'right' };
     }
   }
 
